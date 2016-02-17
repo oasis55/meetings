@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" class="default__91">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>Meetings</title>
+    <link rel="stylesheet" type="text/css" href="../application/www/css/main.min.css" />
+    <script type="text/javascript" src="../application/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../application/bower_components/angular/angular.min.js"></script>
+    <script>
+        angular
+            .module('app', [])
+    </script>
+</head>
+<body class="default">
+
+<div>
+
+    <div id="meetings">
+        <div class="meeting meeting__first">
+            <div class="meeting__btn meeting__btn_context_menu"></div>
+            <div class="meeting__title">Дружеская встреча</div>
+            <div class="meeting__row">
+                <div class="meeting__cell">
+                    <div class="meeting__icon">
+                        <svg class="small-clock"
+                             version="1.1"
+                             width="48"
+                             height="48"
+                             viewBox="-24 -24 48 48">
+
+                            <circle class="small-clock__outer-circle" r="23"></circle>
+
+                            <g>
+                                <circle class="small-clock__label" r="1.5" cx="18.5"></circle>
+                                <circle class="small-clock__label" r="1.5" cx="-18.5"></circle>
+                            </g>
+
+                            <g transform="rotate(90)">
+                                <circle class="small-clock__label" r="1.5" cx="18.5"></circle>
+                                <circle class="small-clock__label" r="1.5" cx="-18.5"></circle>
+                            </g>
+
+                            <g transform="rotate(30)">
+                                <circle class="small-clock__label" r="1" cx="18.5"></circle>
+                                <circle class="small-clock__label" r="1" cx="-18.5"></circle>
+                            </g>
+
+                            <g transform="rotate(60)">
+                                <circle class="small-clock__label" r="1" cx="18.5"></circle>
+                                <circle class="small-clock__label" r="1" cx="-18.5"></circle>
+                            </g>
+
+                            <g transform="rotate(-30)">
+                                <circle class="small-clock__label" r="1" cx="18.5"></circle>
+                                <circle class="small-clock__label" r="1" cx="-18.5"></circle>
+                            </g>
+
+                            <g transform="rotate(-60)">
+                                <circle class="small-clock__label" r="1" cx="18.5"></circle>
+                                <circle class="small-clock__label" r="1" cx="-18.5"></circle>
+                            </g>
+
+                            <rect class="small-clock__hand" height="16" width="2" x="-1" y="-16"></rect>
+                            <rect class="small-clock__hand" height="10" width="2" x="-1" y="-10" transform="rotate(60)"></rect>
+
+                        </svg>
+                    </div>
+                    <div class="meeting__time-first">14:05</div>
+                </div>
+                <div class="meeting__cell">
+                    <div class="meeting__timer"></div>
+                    <div class="meeting__time-before">00:05</div>
+                </div>
+            </div>
+            <div class="meeting__row">
+                <a class="meeting__icon" href="#">
+                    <img class="meeting__avatar" src="img/users__avatar_small4.png">
+                </a>
+                <a class="meeting__name" href="#">Инесса</a>
+            </div>
+            <div class="meeting__row_start">
+                <a class="meeting__map" href="#">
+                    <img class="meeting__map-image" src="img/meeting__map-image1.png">
+                    <svg class="meeting__icon-loupe"
+                         version="1.1"
+                         viewBox="0 0 95 78"
+                         enable-background="new 0 0 95 78"
+                         xml:space="preserve">
+                        <path class="meeting__loupe"
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M27.7,44.5C44.3,56.4,43.4,78,47.8,77.9c4.4-0.1,3.7-21.6,20.8-34.4C97,25.7,94.1,0,94.1,0H0.5C0.5,0-3,27.1,27.7,44.5z"/>
+                    </svg>
+                </a>
+                <div class="meeting__place">
+                    <a href="#">
+                        Кафе «Кофейня №7»,<br>
+                        ул. 8 Марта, 10
+                    </a>
+                </div>
+            </div>
+            <div class="meeting__line"></div>
+            <div class="meeting__ctrl">
+                <div class="meeting__btn meeting__btn_dialog">
+                    <div class="meeting__new_messages">+2</div>
+                </div>
+                <div class="meeting__btn meeting__btn_call"></div>
+                <div class="meeting__btn meeting__btn_transfer"></div>
+            </div>
+        </div>
+        <div class="meeting">
+            <div class="meeting__btn meeting__btn_context_menu"></div>
+            <div class="meeting__row meeting__first-row">
+                <div class="meeting__time">16:30</div>
+                <div class="meeting__subtitle">Деловая встреча</div>
+            </div>
+            <div class="meeting__row">
+                <a class="meeting__icon" href="#">
+                    <img class="meeting__avatar" src="img/users__avatar_small3.png">
+                </a>
+                <a class="meeting__name" href="#">Данияр</a>
+            </div>
+            <div class="meeting__row_start">
+                <a class="meeting__map" href="#">
+                    <img class="meeting__map-image" src="img/meeting__map-image1.png">
+                    <svg class="meeting__icon-loupe"
+                         version="1.1"
+                         viewBox="0 0 95 78"
+                         enable-background="new 0 0 95 78"
+                         xml:space="preserve">
+                        <path class="meeting__loupe"
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M27.7,44.5C44.3,56.4,43.4,78,47.8,77.9c4.4-0.1,3.7-21.6,20.8-34.4C97,25.7,94.1,0,94.1,0H0.5C0.5,0-3,27.1,27.7,44.5z"/>
+                    </svg>
+                </a>
+                <div class="meeting__place">
+                    <a href="#">
+                        ул. Мира,19, каб. Э-405
+                    </a>
+                </div>
+            </div>
+            <div class="meeting__line"></div>
+            <div class="meeting__ctrl">
+                <div class="meeting__btn meeting__btn_dialog"></div>
+                <div class="meeting__btn meeting__btn_call"></div>
+                <div class="meeting__btn meeting__btn_transfer"></div>
+            </div>
+        </div>
+        <div class="meeting__label">
+            Завтра
+        </div>
+        <div class="meeting">
+            <div class="meeting__btn meeting__btn_context_menu"></div>
+            <div class="meeting__row meeting__first-row">
+                <div class="meeting__time">06:00</div>
+                <div class="meeting__subtitle">Рыбалка</div>
+            </div>
+            <div class="meeting__row">
+                <a class="meeting__icon" href="#">
+                    <img class="meeting__avatar" src="img/users__avatar_small3.png">
+                </a>
+                <a class="meeting__name" href="#">Данияр</a>
+            </div>
+            <div class="meeting__row_start">
+                <a class="meeting__map" href="#">
+                    <img class="meeting__map-image" src="img/meeting__map-image2.png">
+                    <svg class="meeting__icon-loupe"
+                         version="1.1"
+                         viewBox="0 0 95 78"
+                         enable-background="new 0 0 95 78"
+                         xml:space="preserve">
+                        <path class="meeting__loupe"
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M27.7,44.5C44.3,56.4,43.4,78,47.8,77.9c4.4-0.1,3.7-21.6,20.8-34.4C97,25.7,94.1,0,94.1,0H0.5C0.5,0-3,27.1,27.7,44.5z"/>
+                    </svg>
+                </a>
+                <div class="meeting__place">
+                    <a href="#">
+                        N 59°10,360<br>
+                        E 58°32,140
+                    </a>
+                </div>
+            </div>
+            <div class="meeting__line"></div>
+            <div class="meeting__ctrl">
+                <div class="meeting__btn meeting__btn_dialog"></div>
+                <div class="meeting__btn meeting__btn_call"></div>
+                <div class="meeting__btn meeting__btn_transfer"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

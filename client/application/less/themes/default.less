@@ -1,0 +1,259 @@
+@import "../variables";
+@import "../colors";
+
+html {
+  background-color: @gray97;
+}
+
+.default () {
+
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/Roboto-Light.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/Roboto-Medium.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'MaterialDesignIcons';
+    src: url("../fonts/materialdesignicons-webfont.ttf?v=1.2.64") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  font: normal normal 400 17px/24px Roboto;
+  color: @gray25;
+
+  .mdi () {
+    display: inline-block;
+    font: normal normal normal 24px/1 MaterialDesignIcons;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    transform: translate(0, 0);
+  }
+
+  .btn () {
+    border-radius: @btnRounded;
+    color: #fff;
+    background-color: @blue;
+    box-shadow: 0 1px 4px rgba(0,0,0,.25);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .btn__big () {
+    padding: 0 @btnMediumIndent;
+    height: @btnMediumWidth;
+  }
+
+  .btn__small () {
+    padding: 0 @indent;
+    height: @btnSmallWidth;
+    font-size: @btnSmallFontSize;
+  }
+
+  .btn-icon () {}
+
+  .btn-icon__big () {
+    font-size: @btnIconFontSize;
+  }
+
+  .btn-icon__medium () {
+    font-size: @btnIconMediumFontSize;
+  }
+
+  .btn-icon__small () {
+    font-size: @btnIconSmallFontSize;
+  }
+
+  .users__icon_import {
+    .mdi;
+    .btn-icon__medium;
+    &:before {
+      content: "\f10c";
+    }
+  }
+
+  .users__icon_selected {
+    .mdi;
+    .btn-icon__medium;
+    &:before {
+      content: "\f1fe";
+    }
+  }
+
+  .users__btn_invite {
+    .btn;
+    .btn__small;
+  }
+
+  .users__btn_profile {
+    .mdi;
+    .btn-icon__medium;
+    &:before {
+      content: "\f219";
+    }
+  }
+
+  .users__btn_dialog {
+    .mdi;
+    .btn-icon__medium;
+    &:before {
+      content: "\f248";
+    }
+  }
+
+  .users__btn_call {
+    .mdi;
+    .btn-icon__medium;
+    &:before {
+      content: "\f477";
+    }
+  }
+
+  .users__btn_meet {
+    .mdi;
+    .btn-icon__medium;
+    &:before {
+      content: "\f11c";
+    }
+  }
+
+  .time__btn_more {
+    .mdi;
+    .btn-icon__medium;
+    &:before {
+      content: "\f211";
+    }
+  }
+
+  .meeting {
+    font-weight: 300;
+  }
+
+  .meeting__btn_dialog {
+    .mdi;
+    .btn-icon__big;
+    &:before {
+      content: "\f248";
+    }
+  }
+
+  .meeting__btn_call {
+    .mdi;
+    .btn-icon__big;
+    &:before {
+      content: "\f477";
+    }
+  }
+
+  .meeting__btn_transfer {
+    .mdi;
+    .btn-icon__big;
+    &:before {
+      content: "\f222";
+    }
+  }
+
+  .meeting__btn_edit {
+    .mdi;
+    .btn-icon__big;
+    &:before {
+      content: "\f472";
+    }
+  }
+
+  .meeting__btn_cancel {
+    .mdi;
+    .btn-icon__big;
+    &:before {
+      content: "\f223";
+    }
+  }
+
+  .meeting__btn_accept {
+    .mdi;
+    .btn-icon__big;
+    &:before {
+      content: "\f1fe";
+    }
+  }
+
+  .meeting__btn_interact {
+    .mdi;
+    .btn-icon__big;
+    &:before {
+      content: "\f206";
+    }
+  }
+
+  .meeting__btn_context_menu {
+    .mdi;
+    .btn-icon__medium;
+    &:before {
+      content: "\f298";
+    }
+  }
+
+  .meeting__new_messages {
+    font: normal normal 400 @fontSizeBody1/1 Roboto;
+  }
+
+  .meeting__title {
+    font: normal normal 300 @fontSizeHeadline/1 Roboto;
+  }
+
+  .meeting__subtitle {
+    font: normal normal 300 @fontSizeTitle/1 Roboto;
+  }
+
+  .meeting__time, .meeting__time-first {
+    font: normal normal 400 @fontSizeHeadline/1 Roboto;
+  }
+
+  .meeting__time-before {
+    font-weight: 400;
+  }
+
+  .meeting__timer {
+    .mdi;
+    .btn-icon__small;
+    &:before {
+      content: "\f569";
+    }
+  }
+
+  .form__input {
+    font: normal normal 300 17px/26px Roboto;
+  }
+
+  .form__error {
+    font: normal normal 400 14px/20px Roboto;
+  }
+
+  .form__btn_submit {
+    .btn;
+    .btn__big;
+  }
+
+}
+
+.default {
+  .default;
+}
+
+.default__91 {
+  background-color: @gray91;
+}

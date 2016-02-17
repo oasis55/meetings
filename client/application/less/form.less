@@ -1,0 +1,61 @@
+@import "variables";
+@import "colors";
+
+.form {
+  display: block;
+  padding: @indent @indent*1.5;
+}
+
+.form__row {
+  position: relative;
+  padding: @indent 0;
+}
+
+.form__input {
+  display: block;
+  position: relative;
+  border: 0;
+  border-bottom: @line solid @gray80;
+  padding-bottom: @line;
+  outline: 0;
+  width: 100%;
+  resize: none;
+  background-size: 100% @stroke;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-color: transparent;
+  &.ng-hide-add-active {
+    display: none !important;
+  }
+  &.ng-invalid {
+    .form__input_error;
+  }
+  &:focus{
+    .form__input_focus;
+  }
+}
+
+.form__input_focus {
+  padding-bottom: @stroke;
+  border: 0;
+  background-image: linear-gradient(@blueLight, @blueLight);
+}
+
+.form__input_error {
+  padding-bottom: @stroke !important;
+  border: 0 !important;
+  background-image: linear-gradient(@red, @red) !important;
+}
+
+.form__error {
+  display: none;
+  position: absolute;
+  bottom: @indent*-.25;
+  color: @red;
+}
+
+.form__ctrl_right {
+  text-align: right;
+}
+
+.form__btn_submit {}

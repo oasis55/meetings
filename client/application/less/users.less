@@ -1,0 +1,120 @@
+@import "variables";
+@import "colors";
+
+#users {
+  padding: @indent*1.5 0 @indent*0.5;
+}
+
+.users__user {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: @indent;
+}
+
+.users__avatar {
+  margin: 0 @indent;
+  flex-shrink: 0;
+  width: @avatarSmall;
+  height: @avatarSmall;
+  border-radius: @avatarMedium;
+}
+
+.users__icons {
+  margin: 0 @indent;
+  flex-shrink: 0;
+  width: @avatarSmall;
+  text-align: center;
+}
+
+.users__icon_import {
+  color: @gray45;
+}
+
+.users__content {
+  margin-right: @indent;
+  width: 100%;
+  overflow: hidden;
+  color: @gray25;
+}
+
+.users__name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1;
+}
+
+.users__line {
+  display: none;
+  margin: @indent 0;
+  height: @line;
+  background-color: @white75;
+}
+
+.users__open {
+  padding: @indent 0;
+  background-color: @blue;
+
+  .users__content {
+    color: #fff;
+  }
+  .users__avatar {
+    width: @avatarMedium;
+    height: @avatarMedium;
+  }
+  .users__line {
+    display: block;
+  }
+  .users__ctrl {
+    display: flex;
+  }
+  .users__name {
+    padding: 0 @indent/2;
+  }
+}
+
+.users__select {
+  padding: @indent 0;
+  background-color: @blue;
+
+  .users__content {
+    color: #fff;
+  }
+  .users__icon_selected {
+    color: #fff;
+    display: inline-block !important;
+  }
+}
+
+.users__select_shift {
+  margin-top: -@indent;
+}
+
+.users__ctrl {
+  display: none;
+  justify-content: space-between;
+  padding: 0 @indent/2;
+}
+
+.users__ctrl_right {
+  margin-right: @indent;
+  flex-shrink: 0;
+}
+
+.users__btn_invite {
+  margin-right: @indent;
+  flex-shrink: 0;
+}
+
+.users__btn_profile {}
+
+.users__btn_dialog {}
+
+.users__btn_call {}
+
+.users__btn_meet {}
+
+.users__icon_selected {
+  display: none !important;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html ng-app="ngMeeting" ng-controller="mainCtrl" ng-class="{'default__91': !mainModel.backgroundLight}">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/main.min.css" />
+        <title>Meetings</title>
+    </head>
+    <body ng-class="mainModel.bodyCssClass">
+
+        <div class="test">
+            {{mainModel.bodyCssClass}}<br><br>
+            <a ng-href="#/users">/users</a><br>
+            <a ng-href="#/meetings">/meetings</a><br>
+            <a ng-href="#/invitations">/invitations</a><br>
+            <a ng-href="#/opportunities">/opportunities</a><br>
+            <a ng-href="#/new/contacts">/new/contacts</a><br>
+            <a ng-href="#/new/time">/new/time</a><br>
+            <a ng-href="#/transfer-meeting">/transfer-meeting</a><br>
+            <br><br>
+        </div>
+
+        <ng-view></ng-view>
+
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="device.js"></script>
+    </body>
+</html>

@@ -1,0 +1,99 @@
+<div>
+    <svg id="time__clock_svg"
+         version="1.1"
+         width="302"
+         height="302"
+         viewBox="-151 -151 302 302">
+
+        <g>
+            <circle id="time__outer_circle" r="150"></circle>
+            <circle id="time__inner_circle" r="100"></circle>
+        </g>
+
+        <g>
+            <circle class="time__dash" r="125"></circle>
+            <mask id="time__mask">
+                <circle class="time__dash" r="125"></circle>
+            </mask>
+        </g>
+
+        <g>
+            <g>
+                <rect class="time__rect" height="5" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect" height="5" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(90)">
+                <rect class="time__rect" height="5" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect" height="5" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(30)">
+                <rect class="time__rect" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect" height="2" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(60)">
+                <rect class="time__rect" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect" height="2" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(-30)">
+                <rect class="time__rect" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect" height="2" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(-60)">
+                <rect class="time__rect" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect" height="2" width="12.5" x="118.75"></rect>
+            </g>
+        </g>
+
+        <g style="mask: url(#time__mask)">
+            <g>
+                <rect class="time__rect_white" height="5" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect_white" height="5" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(90)">
+                <rect class="time__rect_white" height="5" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect_white" height="5" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(30)">
+                <rect class="time__rect_white" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect_white" height="2" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(60)">
+                <rect class="time__rect_white" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect_white" height="2" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(-30)">
+                <rect class="time__rect_white" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect_white" height="2" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(-60)">
+                <rect class="time__rect_white" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect_white" height="2" width="12.5" x="118.75"></rect>
+            </g>
+        </g>
+
+        <g class="time__point">
+            <circle class="time__touch" r="24"></circle>
+            <circle class="time__red" r="16"></circle>
+            <circle class="time__yellow" r="16"></circle>
+            <circle r="128" fill="none"></circle>
+        </g>
+
+        <g class="time__point">
+            <circle class="time__touch" r="24"></circle>
+            <circle class="time__red" r="16"></circle>
+            <circle class="time__yellow" r="16"></circle>
+            <circle r="128" fill="none"></circle>
+        </g>
+
+    </svg>
+</div>

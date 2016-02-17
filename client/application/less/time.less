@@ -1,0 +1,246 @@
+@import "variables";
+@import "colors";
+
+#time {}
+
+#time__range {
+  padding: @indent*2 0;
+  text-align: center;
+  font-size: 24px;
+  line-height: 1;
+}
+
+#time__clock_svg {
+  display: block;
+  margin: auto;
+}
+
+#time__clock_svg_green {
+  #time__clock_svg;
+  .time__rect {
+    fill: @green;
+  }
+  .time__dash {
+    stroke: @green;
+  }
+  .time__dash_inner {
+    stroke: @greenMedium;
+  }
+  .time__touch {
+    stroke: @green;
+  }
+  .time__fill {
+    stroke: @green;
+    fill: @green;
+  }
+  .time__point_inner {
+    .time__touch {
+      stroke: @greenMedium;
+    }
+    .time__fill {
+      fill: @greenMedium;
+      stroke: @greenMedium;
+    }
+  }
+}
+
+#time__outer_circle {
+  stroke-width: @line;
+  stroke: @gray80;
+  fill: #fff;
+}
+
+#time__inner_circle {
+  stroke-width: @line;
+  stroke: @gray80;
+  fill: @gray97;
+}
+
+.time__rect {
+  fill: @blue;
+}
+
+.time__rect_white {
+  fill: #fff;
+}
+
+.time__dash {
+  fill: none;
+  stroke-width: (@outerCircle - @innerCircle)/2 + @line;
+  stroke: @blue;
+  stroke-dasharray: (@innerCircle + (@outerCircle - @innerCircle)/2)*pi();
+  stroke-dashoffset: (@innerCircle + (@outerCircle - @innerCircle)/2)*pi();
+}
+
+.time__dash_inner {
+  fill: none;
+  stroke-width: (@outerCircle - @innerCircle)/2 + @line;
+  stroke: @blueMedium;
+  stroke-dasharray: (@outerCircle - @innerCircle)*3/2*pi();
+  stroke-dashoffset: (@outerCircle - @innerCircle)*3/2*pi();
+}
+
+#time__mask {
+  .time__fill {
+    stroke: #fff;
+    fill: #fff;
+  }
+  .time__dash {
+    stroke: #fff;
+  }
+}
+
+.time__touch {
+  stroke-width: @stroke;
+  stroke: @blue;
+  fill: @white;
+}
+
+.time__fill {
+  stroke-width: @stroke;
+  stroke: @blue;
+  fill: @blue;
+}
+
+.time__fill_inner {
+  stroke-width: @stroke;
+  stroke: @blueMedium;
+  fill: @blueMedium;
+}
+
+.time__yellow {
+  display: none;
+  fill: fade(@yellow, 75);
+}
+
+.time__red {
+  display: none;
+  fill: fade(@red, 75);
+}
+
+.time__point {
+  .time__touch, .time__yellow, .time__red, .time__fill, .time__fill_inner {
+    transform: translate(0, -@innerCircle/2 - (@outerCircle - @innerCircle)/4);
+  }
+}
+
+.time__point_inner {
+  .time__touch, .time__yellow, .time__red, .time__fill, .time__fill_inner {
+    transform: translate(0, -(@outerCircle - @innerCircle)*0.75);
+  }
+  .time__touch {
+    stroke: @blueMedium;
+  }
+}
+
+.time__point_selected {
+  .time__yellow {
+    display: block;
+  }
+}
+
+.time__point_delete {
+  .time__red {
+    display: block;
+  }
+}
+
+.time__point_none {
+  .time__point {
+    fill: #fff;
+    transition: none;
+  }
+}
+
+
+
+#time__month {
+  margin: auto;
+  padding:@indent*2 0;
+  max-width: @week;
+}
+
+.time__weeks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#time__labels {
+  display: flex;
+  margin: -@indent*(1/2) 0 @indent*(3/2);
+  justify-content: space-between;
+  font-size: 15px;
+  //font-weight: 300;
+  line-height: 1;
+}
+
+.time__label {
+  min-width: @day;
+  text-align: center;
+}
+
+.time__day {
+  display: flex;
+  margin-bottom: @indent;
+  width: @day - @line*2;
+  height: @day - @line*2;
+  border-radius: @day;
+  border: @line solid @gray80;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  &:empty {
+    margin: 0;
+    border: none;
+    height: 0;
+  };
+}
+
+.time__weekend {
+  border-color: @green;
+}
+
+.time__day_selected {
+  width: @day - @stroke*2;
+  height: @day - @stroke*2;
+  border: @stroke solid @blue;
+}
+
+.time__day_empty {
+  display: flex;
+  margin-bottom: @indent;
+  width: @day;
+  height: @day;
+}
+
+.time__label_month {
+  margin-bottom: @indent;
+  text-align: right;
+  color: @gray60;
+  line-height: 1;
+}
+
+.time__line {
+  margin: @indent 0;
+  height: @line;
+  background-color: @gray80;
+}
+
+.time__midnight {
+  text-anchor: middle;
+  dominant-baseline: central;
+  font-weight: 300;
+  font-size: 34px;
+  line-height: 1;
+  fill: @gray60;
+}
+
+.time__more {
+  margin: -@indent/2 auto 0;
+  text-align: center;
+}
+
+.time__btn_more {
+  color: @gray60;
+}

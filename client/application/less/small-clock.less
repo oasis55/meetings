@@ -1,0 +1,41 @@
+@import "variables";
+@import "colors";
+
+.small-clock {
+  display: block;
+}
+
+.small-clock__white {
+  .small-clock__outer-circle {
+    stroke: @white;
+    fill: none;
+  }
+  .small-clock__label {
+    fill: @white75;
+  }
+  .small-clock__hand {
+    fill: @white;
+  }
+}
+
+.small-clock__outer-circle {
+  stroke-width: @stroke;
+  stroke: @gray60;
+  fill: #fff;
+}
+
+.small-clock__label {
+  fill: @gray60
+}
+
+.small-clock__hand {
+  fill: @gray45;
+}
+
+.small-clock__range {
+  stroke-width: @indent*1.5;
+  stroke: @white75;
+  fill: none;
+  stroke-dasharray: @indent*1.5*pi();
+  stroke-dashoffset: @indent*1.5*pi();
+}

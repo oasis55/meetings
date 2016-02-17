@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>Users</title>
+    <link rel="stylesheet" type="text/css" href="../application/www/css/main.min.css" />
+    <script type="text/javascript" src="../application/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../application/bower_components/angular/angular.min.js"></script>
+    <script>
+        angular
+            .module('app', [])
+            .controller('usersCtrl', ['$scope', '$http', function ($scope, $http) {
+
+                $http
+                    .get('../application/www/test-data/contacts.json')
+                    .success(function(data, status) {
+                        if (status === 200) {
+                            $scope.users = data;
+                        }
+                    });
+
+                $scope.open = function ($index, enadle) {
+                    if (enadle) {
+                        $scope.$index = $index;
+                    }
+                };
+
+                $scope.isOpen = function ($index) {
+                    return $scope.$index === $index;
+                };
+
+            }]);
+    </script>
+</head>
+<body class="default">
+
+<div>
+
+    <div id="users" ng-controller="usersCtrl">
+        <div class="users__user">
+            <div class="users__icons">
+                <div class="users__icon_import"></div>
+            </div>
+            <div class="users__content">
+                <div class="users__name">Импорт контактов</div>
+            </div>
+        </div>
+        <div class="users__user"
+             ng-repeat="user in users"
+             ng-click="open($index, user.registered)"
+             ng-class="{'users__open': isOpen($index)}">
+            <img class="users__avatar"
+                 ng-show="!isOpen($index)"
+                 ng-src="{{::user.avatarUrlSmall}}">
+            <img class="users__avatar"
+                 ng-show="isOpen($index)"
+                 ng-src="{{::user.avatarUrlMedium}}">
+            <div class="users__content">
+                <div class="users__name">{{::user.name}}</div>
+                <div class="users__line"></div>
+                <div class="users__ctrl"
+                     ng-if="user.registered">
+                    <div class="users__btn_profile"></div>
+                    <div class="users__btn_dialog"></div>
+                    <div class="users__btn_call"></div>
+                    <div class="users__btn_meet"></div>
+                </div>
+            </div>
+            <button class="users__btn_invite" ng-if="!user.registered">Пригласить</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

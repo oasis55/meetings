@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../application/www/css/main.min.css" />
+    <script type="text/javascript" src="../application/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../application/bower_components/angular/angular.min.js"></script>
+    <script>
+        angular
+                .module('app', [])
+                .controller('newContactsCtrl', ['$scope', '$http', function ($scope, $http) {
+
+                    $scope.selected = [];
+
+                    $http
+                            .get('../application/www/test-data/contacts.json')
+                            .success(function(data, status) {
+                                if (status === 200) {
+
+                                    function sort (a, b) {
+                                        if ( a.name > b.name ) return 1;
+                                        if ( a.name < b.name ) return -1;
+                                        return 0;
+                                    }
+
+                                    $scope.users = data
+                                                    .filter(function (element) {
+                                                        return element.registered;
+                                                    })
+                                                    .sort(sort);
+
+                                }
+                            });
+
+                    $scope.select = function (id) {
+                        if (!$scope.isSelected(id))
+                            $scope.selected.push(id);
+                        else
+                            $scope.selected.splice($scope.selected.indexOf(id), 1);
+                    };
+
+                    $scope.isSelected = function (id) {
+                        return $scope.selected.some(function (element) {
+                            return element === id;
+                        });
+                    };
+
+                }]);
+    </script>
+    <title>Contacts</title>
+</head>
+<body class="default">
+
+<div id="users" ng-controller="newContactsCtrl">
+    <div class="users__user"
+         ng-repeat="user in users"
+         ng-if="user.registered"
+         ng-click="select(user.id)"
+         ng-class="{
+            'users__select_shift': $index > 0 && isSelected(user.id) && isSelected(users[$index - 1].id),
+            'users__select': isSelected(user.id)}">
+        <img class="users__avatar"
+             ng-src="{{::user.avatarUrlSmall}}">
+        <div class="users__content">
+            <div class="users__name">{{::user.name}}</div>
+        </div>
+        <div class="users__ctrl_right">
+            <div class="users__icon_selected"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

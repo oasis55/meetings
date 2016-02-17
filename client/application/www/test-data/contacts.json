@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Милана",
+    "avatarUrlSmall": "img/users__avatar_small1.png",
+    "avatarUrlMedium": "img/users__avatar_medium1.png",
+    "registered": true
+  },
+  {
+    "id": 2,
+    "name": "Майя",
+    "avatarUrlSmall": "img/users__avatar_small2.png",
+    "avatarUrlMedium": "img/users__avatar_medium2.png",
+    "registered": true
+  },
+  {
+    "id": 3,
+    "name": "Инесса",
+    "avatarUrlSmall": "img/users__avatar_small4.png",
+    "avatarUrlMedium": "img/users__avatar_medium4.png",
+    "registered": true
+  },
+  {
+    "id": 4,
+    "name": "Данияр",
+    "avatarUrlSmall": "img/users__avatar_small3.png",
+    "avatarUrlMedium": "img/users__avatar_medium3.png",
+    "registered": true
+  },
+  {
+    "id": 5,
+    "name": "Серафима",
+    "avatarUrlSmall": "img/users__avatar_small7.png",
+    "avatarUrlMedium": "img/users__avatar_medium7.png",
+    "registered": true
+  },
+  {
+    "id": 6,
+    "name": "Иннокентий",
+    "avatarUrlSmall": "img/users__avatar_small5.png",
+    "avatarUrlMedium": "img/users__avatar_medium5.png",
+    "registered": false
+  },
+  {
+    "id": 7,
+    "name": "Нинель",
+    "avatarUrlSmall": "img/users__avatar_small6.png",
+    "avatarUrlMedium": "img/users__avatar_medium6.png",
+    "registered": false
+  }
+]

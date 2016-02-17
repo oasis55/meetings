@@ -1,0 +1,55 @@
+<div id="time">
+
+    <div id="time__range">{{timeRange.hourStart | date:'HH:mm'}}<span ng-show="timeRange.hourEnd"> – {{timeRange.hourEnd | date:'HH:mm'}}</span></div>
+
+    <choose-time sync="timeRange" options="{mode: 'hoursRange'}"></choose-time>
+
+    <div id="time__month"
+         on-page-end="newTimeModel.showMonth && nextMonth()">
+        <div class="time__weeks">
+            <div class="time__day"
+                 ng-repeat="day in newTimeModel.weekDataArray"
+                 ng-class="{'time__weekend': $index > 4, 'time__day_selected': day.selected}"
+                 ng-click="selectDay(day)">
+                {{::getShortDayName(day)}}
+            </div>
+        </div>
+        <div id="time__labels"
+             ng-show="newTimeModel.showMonth">
+            <div class="time__label"
+                 ng-repeat="day in newTimeModel.weekDataArray">
+                {{day | date:'d'}}
+            </div>
+        </div>
+
+        <div ng-if="newTimeModel.showMonth"
+             ng-repeat="month in newTimeModel.monthsDataArray">
+            <div class="time__label_month"
+                 ng-show="$index > 0 && month[0].getDate() === 1">
+                {{::getMonthName(month[0])}}
+            </div>
+            <div class="time__weeks">
+                <div class="time__day_empty"
+                     ng-repeat="day in helper.getEmptyArray(month[0].getDay() ? month[0].getDay() - 1 : 6)"></div>
+                <div class="time__day"
+                     ng-repeat="day in month | limitTo:32:((!$parent.$index && 7) || 0)"
+                     ng-class="{'time__weekend': time.isWeekend(day), 'time__day_selected': day.selected}"
+                     ng-click="selectDay(day)">
+                    {{day | date:'d'}}
+                </div>
+                 <!--fix: flex justify-content: center  -->
+                <div class="time__day"
+                     ng-repeat="day in month | limitTo:7"></div>
+            </div>
+        </div>
+
+        <div ng-hide="newTimeModel.showMonth">
+            <div class="time__line"></div>
+            <div class="time__more">
+                <div class="time__btn_more" ng-click="nextMonth()"></div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

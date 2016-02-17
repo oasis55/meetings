@@ -1,0 +1,8 @@
+.idea
+server
+client/design
+client/application/bower_components
+client/application/node_modules
+client/application/platforms
+client/application/plugins
+TODO.xlsx

@@ -1,0 +1,258 @@
+@import "colors";
+@import "variables";
+
+#meetings {
+  padding: @indent*.75 @indent*.5;
+}
+
+.meeting {
+  position: relative;
+  margin: 0 0 @indent*0.5;
+  padding: @indent 0;
+  background-color: @gray97;
+  box-shadow: 0 1px 3px @black30;
+}
+
+.meeting__blue {
+  color: @white;
+  background-color: @blue;
+  .meeting__btn {
+    color: @white !important;
+  }
+  .meeting__map-image {
+    border-color: @white;
+  }
+  .meeting__loupe {
+    fill: @white;
+  }
+  .meeting__line {
+    background-color: @white75;
+  }
+}
+
+.meeting__first {
+  background-color: @white;
+}
+
+.meeting__label {
+  margin: -@indent*.5 @indent*0.5 0;
+  padding: @indent*2 0 @indent*.5;
+  text-align: right;
+  color: @gray60;
+  line-height: 1;
+}
+
+.meeting__line {
+  margin: @indent;
+  height: @line;
+  background-color: fade(@gray45, 30%);
+}
+
+.meeting__message {
+  position: relative;
+  display: block;
+  margin-top: @indent*.5;
+  margin-right: @indent;
+  padding: @indent*.5 @indent*.75;
+  border-radius: @indent;
+  color: @white;
+  background-color: @blue;
+  word-break: break-all;
+}
+
+.meeting__message_container {
+  display: flex;
+  min-height: @avatarSmall;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.meeting__new_messages {
+  position: absolute;
+  top: @indent/8;
+  left: @btnIconFontSize + @indent/8;
+  border-radius: @indent;
+  padding: @indent*.25;
+  color: @white;
+  background-color: @greenMedium;
+}
+
+.meeting__title {
+  margin: 0 (@indent + @btnIconMediumFontSize) 0 @indent;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meeting__subtitle {
+  margin: 0 (@indent + @btnIconMediumFontSize) 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meeting__time {
+  width: @indent*2 + @avatarSmall;
+  text-align: center;
+  flex-shrink: 0;
+  color: @gray45;
+}
+
+.meeting__time-first {
+
+}
+
+.meeting__time-before {}
+
+.meeting__timer {
+  margin-right: @indent/4;
+  color: @gray60;
+}
+
+.meeting__row {
+  margin-top: @indent;
+  display: flex;
+  align-items: center;
+}
+
+.meeting__row_start {
+  margin-top: @indent;
+  display: flex;
+  align-items: flex-start;
+}
+
+.meeting__first-row {
+  margin-top: 0;
+}
+
+.meeting__cell {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.meeting__icon {
+  margin: 0 @indent;
+  flex-shrink: 0;
+}
+
+.meeting__avatar {
+  display: block;
+  width: @avatarSmall;
+  height: @avatarSmall;
+  border-radius: @avatarMedium;
+}
+
+.meeting__name {
+  display: block;
+  margin-right: @indent;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1;
+}
+
+.meeting__map {
+  position: relative;
+  display: block;
+}
+
+.meeting__map-image {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  margin: 0 @indent;
+  width: @avatarSmall - @stroke*2;
+  height: @avatarSmall - @stroke*2;
+  border: @stroke solid @gray60;
+  border-radius: @avatarSmall;
+}
+
+.meeting__loupe {
+  fill: @gray60;
+}
+
+.meeting__place {
+  display: flex;
+  min-height: @avatarSmall;
+  align-items: center;
+}
+
+.meeting__ctrl {
+  margin: 0 @indent;
+  display: flex;
+  justify-content: space-between;
+}
+
+.meeting__ctrl_balanced {
+  .meeting__ctrl;
+  & > div {
+    margin: auto !important;
+  }
+}
+
+.meeting__icon-loupe {
+  display: block;
+  margin: (@indent + 3px) @indent 0;
+  width: @avatarSmall;
+  height: @avatarSmall;
+}
+
+.meeting__icon-pointer {
+  position: absolute;
+  display: block;
+  width: @indent*1.5;
+  height: @indent*1.5;
+  left: -@indent*.5;
+  top: -@indent*.25 - 1px;
+  path {
+    fill: @blue;
+  }
+}
+
+.meeting__btn () {
+  position: relative;
+  margin: auto;
+  color: @gray45;
+  &:first-child {
+    margin-left: @indent*2;
+  }
+  &:last-child {
+    margin-right: @indent*2;
+  }
+}
+
+.meeting__btn_dialog {
+  .meeting__btn;
+}
+
+.meeting__btn_call {
+  .meeting__btn;
+}
+
+.meeting__btn_transfer {
+  .meeting__btn;
+}
+
+.meeting__btn_edit {
+  .meeting__btn;
+}
+
+.meeting__btn_cancel {
+  .meeting__btn;
+}
+
+.meeting__btn_accept {
+  .meeting__btn;
+}
+
+.meeting__btn_context_menu {
+  position: absolute;
+  top: @indent;
+  right: @indent*.5;
+  color: @gray60;
+}
+
+.meeting__btn_interact {
+  .meeting__btn;
+}

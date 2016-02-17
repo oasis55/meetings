@@ -1,0 +1,33 @@
+<div id="users">
+    <div class="users__user">
+        <div class="users__icons">
+            <div class="users__icon_import"></div>
+        </div>
+        <div class="users__content">
+            <div class="users__name">{{:: 'IMPORT_CONTACTS' | translate }}</div>
+        </div>
+    </div>
+    <div class="users__user"
+         ng-repeat="user in users"
+         ng-click="open($index, user.registered)"
+         ng-class="{'users__open': isOpen($index)}">
+        <img class="users__avatar"
+             ng-show="!isOpen($index)"
+             ng-src="{{::user.avatarUrlSmall}}">
+        <img class="users__avatar"
+             ng-show="isOpen($index)"
+             ng-src="{{::user.avatarUrlMedium}}">
+        <div class="users__content">
+            <div class="users__name">{{::user.name}}</div>
+            <div class="users__line"></div>
+            <div class="users__ctrl"
+                 ng-if="user.registered">
+                <div class="users__btn_profile"></div>
+                <div class="users__btn_dialog"></div>
+                <div class="users__btn_call"></div>
+                <div class="users__btn_meet"></div>
+            </div>
+        </div>
+        <button class="users__btn_invite" ng-if="!user.registered">{{:: 'INVITE' | translate }}</button>
+    </div>
+</div>

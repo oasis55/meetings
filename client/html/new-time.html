@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../application/www/css/main.min.css" />
+    <script type="text/javascript" src="../application/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../application/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../application/bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+    <script>
+        angular
+            .module('app', ['tmh.dynamicLocale'])
+            .controller('mainCtrl', ['$scope', 'tmhDynamicLocale', '$window', function ($scope, tmhDynamicLocale, $window) {
+                tmhDynamicLocale.set($window.navigator.language);
+            }])
+            .controller('timeCtrl', ['$scope', function ($scope) {
+
+                $scope.getWeekDateArray = function (date) {
+                    date = date || (new Date());
+
+                    for (var c = 0, dateArray = []; c < 7; c++)
+                        dateArray.push((new Date(date.valueOf())).setDate(date.getDate() - date.getDay() + c + 1));
+
+                    return dateArray;
+                };
+
+                $scope.getMonthArray = function (monthDate, fromDate) {
+                    monthDate = monthDate || new Date();
+
+                    var monthArray = [],
+                        dayInMonth = new Date(monthDate.getFullYear(), monthDate.getMonth() + 1, 0).getDate();
+
+                    for (var c = 0; c < dayInMonth; c++) {
+
+                        if (!fromDate || (fromDate && c >= fromDate.getDate() - fromDate.getDay()))
+                            monthArray.push(new Date(monthDate.getFullYear(), monthDate.getMonth(), c + 1));
+
+                    }
+
+                    return monthArray;
+                };
+
+                $scope.isWeekend = function (date) {
+                    var day = date.getDay();
+                    return day === 0 || day === 6;
+                };
+
+                $scope.timeModel = {
+                    showMonth: false,
+                    dayInWeek: (new Date()).getDay(),
+                    monthsArray: [$scope.getMonthArray((new Date()), (new Date()))]
+                };
+
+                $scope.nextMonth = function () {
+
+                    var n = (!$scope.timeModel.showMonth && 1) || 2;
+
+                    for (var c = 0, firstDay; c < n; c++) {
+                        firstDay = $scope.timeModel.monthsArray[$scope.timeModel.monthsArray.length - 1][0];
+                        firstDay = new Date(firstDay.getFullYear(), firstDay.getMonth() + 1, 1);
+                        $scope.timeModel.monthsArray.push($scope.getMonthArray(firstDay));
+                        $scope.timeModel.showMonth = true;
+                    }
+
+                };
+
+                $scope.getEmptyArray = function (n) {
+                    n = n || 0;
+
+                    for (var c = 0, array = []; c < n; c++) {
+                        array.push(c);
+                    }
+
+                    return array;
+                };
+
+            }])
+            .directive('chooseTime', [function () {
+                return {
+                    restrict: 'A',
+                    scope: {
+                        chooseTime: '='
+                    },
+                    link: function (scope, element, attributes) {
+
+                    }
+                }
+            }])
+            .directive('onPageEnd', [function () {
+                return {
+                    restrict: 'A',
+                    link: function (scope, element, attributes) {
+
+                        function onScroll () {
+                            if (angular.element(document).height() - angular.element(window).height() === window.scrollY) {
+                                scope.$apply(attributes.onPageEnd);
+                            }
+                        }
+
+                        angular.element(window).on('scroll', onScroll);
+
+                        element.on('$destroy', function () {
+                            angular.element(window).off('scroll', onScroll);
+                        });
+
+                    }
+                };
+            }]);
+    </script>
+    <title>Time</title>
+</head>
+<body class="default" ng-controller="mainCtrl">
+
+<div id="time" ng-controller="timeCtrl">
+
+    <div id="time__range">12:00 – 15:00</div>
+
+    <svg id="time__clock_svg"
+         version="1.1"
+         width="302"
+         height="302"
+         viewBox="-151 -151 302 302">
+
+        <g>
+            <circle id="time__outer_circle" r="150"></circle>
+            <circle id="time__inner_circle" r="100"></circle>
+        </g>
+
+        <g>
+            <circle class="time__dash" r="125" style="stroke-dashoffset: 982px"></circle>
+            <mask id="time__mask">
+                <circle class="time__dash" r="125" style="stroke-dashoffset: 982px"></circle>
+            </mask>
+        </g>
+
+        <g>
+            <g>
+                <rect class="time__rect" height="5" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect" height="5" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(90)">
+                <rect class="time__rect" height="5" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect" height="5" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(30)">
+                <rect class="time__rect" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect" height="2" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(60)">
+                <rect class="time__rect" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect" height="2" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(-30)">
+                <rect class="time__rect" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect" height="2" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(-60)">
+                <rect class="time__rect" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect" height="2" width="12.5" x="118.75"></rect>
+            </g>
+        </g>
+
+        <g style="mask: url(#time__mask)">
+            <g>
+                <rect class="time__rect_white" height="5" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect_white" height="5" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(90)">
+                <rect class="time__rect_white" height="5" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect_white" height="5" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(30)">
+                <rect class="time__rect_white" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect_white" height="2" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(60)">
+                <rect class="time__rect_white" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect_white" height="2" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(-30)">
+                <rect class="time__rect_white" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect_white" height="2" width="12.5" x="118.75"></rect>
+            </g>
+
+            <g transform="rotate(-60)">
+                <rect class="time__rect_white" height="2" width="12.5" x="-131.25"></rect>
+                <rect class="time__rect_white" height="2" width="12.5" x="118.75"></rect>
+            </g>
+        </g>
+
+        <g class="time__point time__point_selected">
+            <circle class="time__touch" r="24"></circle>
+            <circle class="time__red" r="16"></circle>
+            <circle class="time__yellow" r="16"></circle>
+            <circle r="128" fill="none"></circle>
+        </g>
+
+        <g class="time__point" transform="rotate(90)">
+            <circle class="time__touch" r="24"></circle>
+            <circle class="time__red" r="16"></circle>
+            <circle class="time__yellow" r="16"></circle>
+            <circle r="128" fill="none"></circle>
+        </g>
+
+    </svg>
+
+    <div id="time__month"
+         on-page-end="timeModel.showMonth && nextMonth()">
+        <div class="time__weeks">
+            <div class="time__day"
+                 ng-repeat="day in timeModel.monthsArray[0] | limitTo:7 track by $index"
+                 ng-class="{'time__weekend': $index > 4, 'time__day_selected': $index + 1 === timeModel.dayInWeek}">
+                {{day | date:'EEE'}}
+            </div>
+        </div>
+        <div id="time__labels"
+             ng-show="timeModel.showMonth">
+            <div class="time__label"
+                 ng-repeat="day in timeModel.monthsArray[0] | limitTo:7">
+                {{day | date:'d'}}
+            </div>
+        </div>
+
+        <div ng-if="timeModel.showMonth"
+             ng-repeat="month in timeModel.monthsArray">
+            <div class="time__label_month"
+                 ng-show="$index > 0">
+                {{month[0] | date:'MMMM'}}
+            </div>
+            <div class="time__weeks">
+                <div class="time__day_empty"
+                     ng-repeat="day in getEmptyArray(month[0].getDay() ? month[0].getDay() - 1 : 6)"></div>
+                <div class="time__day"
+                     ng-repeat="day in month | limitTo:32:((!$parent.$index && 7) || 0)"
+                     ng-class="{'time__weekend': isWeekend(day)}">
+                    {{day | date:'d'}}
+                </div>
+                <!-- fix: flex justify-content: center  -->
+                <div class="time__day"
+                     ng-repeat="day in month | limitTo:7"></div>
+            </div>
+        </div>
+
+        <div ng-hide="timeModel.showMonth">
+            <div class="time__line"></div>
+            <div class="time__more">
+                <div class="time__btn_more" ng-click="nextMonth()"></div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
